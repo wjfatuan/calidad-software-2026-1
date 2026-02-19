@@ -6,10 +6,16 @@ package org.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+// Importing Hamcrest library
+import static org.hamcrest.MatcherAssert.assertThat; 
+import static org.hamcrest.Matchers.*;
+
 class AppTest {
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+        assertThat("hamcrest: app should have a greeting",
+           classUnderTest.getGreeting(), notNullValue());
+
     }
 
     @Test void greeetingIsHola() {
